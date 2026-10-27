@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<title>Tesla → Node-RED</title>
+</head>
+<body style="font-family:sans-serif">
+<p id="m">A passar o login para o Node-RED…</p>
+<script>
+  // Só funciona com o browser em casa (rede local).
+  var NODE_RED = 'http://192.168.1.141:1880/tesla/callback';
+  if (location.search.indexOf('code=') >= 0) {
+    location.replace(NODE_RED + location.search);
+  } else {
+    document.getElementById('m').textContent = 'Sem código da Tesla. Volta a abrir http://192.168.1.141:1880/tesla/login';
+  }
+</script>
+</body>
+</html>
